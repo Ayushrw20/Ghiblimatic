@@ -9,10 +9,11 @@ export default function Home() {
 
     const fetchData = async() => {
         const result = await fetch("https://ghiblimatic.onrender.com/api/artworks");
-                    
+                
         console.log(result);
-
-        // setData(result.data);
+        const data = await result.json();
+        console.log(data);
+        setData(data);
     };
 
     useEffect(() => {
