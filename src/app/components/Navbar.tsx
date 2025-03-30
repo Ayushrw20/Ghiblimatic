@@ -72,10 +72,10 @@ function Navbar() {
                 {/* <Input type="text" placeholder="Search..." className="bg-white focus:border-none" />   */}
                 <Dialog>
                     <DialogTrigger>
-                        <Button variant="default" disabled={uploadStatus != 'Upload'}>  
+                        <Button variant="default">  
                             <IoIosAddCircleOutline />
                             <p className="font-bold max-sm:hidden"> 
-                                {uploadStatus}
+                                Upload
                             </p>
                         </Button>  
                     </DialogTrigger>
@@ -87,7 +87,10 @@ function Navbar() {
                             value={username} 
                             onChange={(e) => setUsername(e.target.value)} />  
                             <Input id="picture" type="file" className="bg-white" onChange={handleFileChange} />
-                            <Button className="font-bold" onClick={handleUpload}>Upload</Button>
+                            <Button className="font-bold" 
+                            onClick={handleUpload} disabled={uploadStatus != 'Upload'}>
+                                Upload
+                            </Button>
                         </DialogDescription>
                         </DialogHeader>
                     </DialogContent>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Masonry from "./components/Masonry/Masonry";
+import GalleryGrid from "./components/GalleryGrid";
 
 export default function Home() {
 
@@ -25,7 +26,8 @@ export default function Home() {
         via-[#F8E8EE] to-[#FFF7E3] overflow-x-hidden">
             <div className="pt-20">
                 {
-                    data.length > 0 && <Masonry data={data} />
+                    // data.length > 0 && <Masonry data={data} />
+                    data.length > 0 && <GalleryGrid data={data} />
                 }
             </div>
         </div>
