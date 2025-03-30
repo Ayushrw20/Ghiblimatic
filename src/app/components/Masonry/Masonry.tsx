@@ -9,6 +9,7 @@ interface MasonryItem {
   id: string | number;
   height: number;
   image: string;
+  insta: string;
 }
 
 interface GridItem extends MasonryItem {
@@ -16,6 +17,7 @@ interface GridItem extends MasonryItem {
   y: number;
   width: number;
   height: number;
+  insta: string;
 }
 
 interface MasonryProps {
@@ -70,6 +72,7 @@ function Masonry({ data }: MasonryProps) {
         y,
         width: width / columns,
         height: child.height / 2,
+        insta: child.insta
       };
     });
     return [heights, gridItems];
@@ -87,6 +90,10 @@ function Masonry({ data }: MasonryProps) {
     config: { mass: 5, tension: 500, friction: 100 },
     trail: 25,
   });
+
+  const handleImageClick = (username: string) => {
+    window?.open('https://www.instagram.com/' + username, '_blank')?.focus();
+  }
 
   return (
     <div
@@ -108,7 +115,11 @@ function Masonry({ data }: MasonryProps) {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-    />
+      onClick={() => handleImageClick(item?.insta)}
+    />  
+    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 backdrop-blur-md text-center px-2 rounded">
+      <p className="text-white">{item?.insta}</p>
+    </div>
   </AnimatedDiv>
 ))}
     </div>

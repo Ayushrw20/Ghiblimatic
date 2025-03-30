@@ -124,3 +124,7 @@
 *::-webkit-scrollbar {
   display: none
 }
+  
+h1, p {
+  font-family: 'Courier New', Courier, monospace;
+}
