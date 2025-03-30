@@ -16,8 +16,8 @@ import { useState } from "react";
 function Navbar() {
 
     const [username, setUsername] = useState('');
-    const [file, setFile] = useState<any>(null);
-            
+    const [file, setFile] = useState<File | null>(null);
+
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files?.[0];
         if (selectedFile) {
@@ -45,9 +45,10 @@ function Navbar() {
             body: formData,
         })
         .then(response => response.json())
-        .then(data => {
+        .then(data => { 
             console.log("Upload successful:", data);
             alert("File uploaded successfully!");
+            window.location.reload();
             setFile(null);
             setUsername("");
         })
