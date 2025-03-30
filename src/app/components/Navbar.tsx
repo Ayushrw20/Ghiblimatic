@@ -89,7 +89,7 @@ function Navbar() {
                             <Input id="picture" type="file" className="bg-white" onChange={handleFileChange} />
                             <Button className="font-bold" 
                             onClick={handleUpload} disabled={uploadStatus != 'Upload'}>
-                                Upload
+                                {uploadStatus}
                             </Button>
                         </DialogDescription>
                         </DialogHeader>
