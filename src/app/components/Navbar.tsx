@@ -57,9 +57,9 @@ function Navbar() {
         });
     };
 
-    const handleSearch = () => {
+    // const handleSearch = () => {
 
-    }
+    // }
         
     return (
         <nav className="h-[11vh] w-full fixed z-10 flex items-center justify-between px-5 backdrop-blur-md max-sm:px-3">
