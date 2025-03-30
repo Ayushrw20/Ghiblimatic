@@ -2,24 +2,21 @@
 
 import { useEffect, useState } from "react";
 import Masonry from "./components/Masonry/Masonry";
-import axios from "axios";
-        
+
 export default function Home() {
 
     const [data, setData] = useState([]);
 
     const fetchData = async() => {
-        const result = await axios('https://ghiblimatic.onrender.com/api/artworks');
+        const result = await fetch("https://ghiblimatic.onrender.com/api/artworks");
+                    
+        console.log(result);
 
-        console.log(result.data);
-
-        setData(result.data);
+        // setData(result.data);
     };
 
     useEffect(() => {
-        return () => {
-            fetchData();
-        }
+        fetchData();
     }, []);
 
     return (

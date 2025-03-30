@@ -17,6 +17,7 @@ function Navbar() {
 
     const [username, setUsername] = useState('');
     const [file, setFile] = useState<File | null>(null);
+    const [uploadStatus, setUploadStatus] = useState<string>('Upload');
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files?.[0];
@@ -39,7 +40,7 @@ function Navbar() {
         const formData = new FormData();
         formData.append("image", file);
         formData.append("instaId", username);
-
+        setUploadStatus('Uploading');
         fetch("https://ghiblimatic.onrender.com/api/artworks/upload", {
             method: "POST",
             body: formData,
@@ -71,10 +72,10 @@ function Navbar() {
                 {/* <Input type="text" placeholder="Search..." className="bg-white focus:border-none" />   */}
                 <Dialog>
                     <DialogTrigger>
-                        <Button variant="default">  
+                        <Button variant="default" disabled={uploadStatus != 'Upload'}>  
                             <IoIosAddCircleOutline />
                             <p className="font-bold max-sm:hidden"> 
-                                Upload
+                                {uploadStatus}
                             </p>
                         </Button>  
                     </DialogTrigger>
