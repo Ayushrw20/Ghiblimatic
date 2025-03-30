@@ -73,7 +73,7 @@ function Navbar({handleSearchFn, userCount}: NavbarPropType) {
 
     return (
         <nav className="h-[11vh] w-full fixed z-10 flex items-center justify-between px-5 backdrop-blur-md max-sm:px-3">
-            <h1 className="text-4xl font-semibold pt-1 text-black mr-12 max-sm:text-2xl max-sm:mr-4 cursor-pointer" 
+            <h1 className="text-4xl font-semibold pt-1 text-black mr-12 max-sm:text-xl max-sm:mr-4 cursor-pointer" 
             title="Developed by Ayush and Abhishek"> 
                 GhibliMatic 
             </h1>
@@ -92,7 +92,8 @@ function Navbar({handleSearchFn, userCount}: NavbarPropType) {
                         <DialogHeader>
                         <DialogTitle>Lets Ghibli-fy the world!</DialogTitle>
                         <DialogDescription className="flex flex-col gap-3 py-4">         
-                            <Input type="text" placeholder="Enter your Instgram Username" className="bg-white focus:border-none"
+                            <Input type="text" 
+                            placeholder="Enter your Instgram" className="bg-white focus:border-none"
                             value={username} 
                             onChange={(e) => setUsername(e.target.value)} />  
                             <Input id="picture" type="file" className="bg-white" onChange={handleFileChange} />

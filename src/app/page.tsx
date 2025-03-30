@@ -29,9 +29,9 @@ export default function Home() {
     const fetchData = async() => {
         const result = await fetch("https://ghiblimatic.onrender.com/api/artworks");
 
-        console.log(result);
+        // console.log(result);
         const data = await result.json();
-        console.log(data);
+        // console.log(data);
         setData(data);
         setDraft(data);
         const uniqueIds = new Set(data.map((art: ItemType) => art.insta).filter(Boolean));
@@ -46,7 +46,7 @@ export default function Home() {
         <div className="h-screen w-screen bg-gradient-to-br from-[#E3F2FD] 
         via-[#F8E8EE] to-[#FFF7E3] overflow-x-hidden">
             <Navbar handleSearchFn={handleSearch} userCount={uniqueInstaCount} />
-            <div className="pt-20">
+            <div className="py-20">
                 {
                     // data.length > 0 && <Masonry data={data} />
                     data.length > 0 && <GalleryGrid data={data} />

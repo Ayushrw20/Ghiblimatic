@@ -20,7 +20,7 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({ data }) => {
           key={index}
           className="relative overflow-hidden rounded-xl shadow-md cursor-pointer"
           onClick={() => handleImageClick(image.insta)}
-        >
+        >           
           <img
             src={image.image}
             className="w-full object-cover rounded-xl"
@@ -28,7 +28,8 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({ data }) => {
             alt={image.insta}
           />
           {/* Username Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-white text-sm">
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-white text-sm 
+          max-sm:text-[10px] max-sm:text-center">
             {image.insta}
           </div>
         </div>
