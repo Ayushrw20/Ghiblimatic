@@ -13,11 +13,17 @@ import {
 } from "@/components/ui/dialog";
 import { useState } from "react";
 
-function Navbar() {
+type NavbarPropType = {
+    handleSearchFn: (value: string) => void,
+    userCount: number
+}
+
+function Navbar({handleSearchFn, userCount}: NavbarPropType) {
 
     const [username, setUsername] = useState('');
     const [file, setFile] = useState<File | null>(null);
     const [uploadStatus, setUploadStatus] = useState<string>('Upload');
+    const [search, setSearch] = useState<string>('');
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files?.[0];
@@ -59,17 +65,20 @@ function Navbar() {
         });
     };
 
-    // const handleSearch = () => {
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setSearch(value);
+        handleSearchFn(value);
+    };
 
-    // }
-        
     return (
         <nav className="h-[11vh] w-full fixed z-10 flex items-center justify-between px-5 backdrop-blur-md max-sm:px-3">
-            <h1 className="text-4xl font-semibold pt-1 text-black mr-12 max-sm:text-2xl max-sm:mr-4">
+            <h1 className="text-4xl font-semibold pt-1 text-black mr-12 max-sm:text-2xl max-sm:mr-4 cursor-pointer" 
+            title="Developed by Ayush and Abhishek"> 
                 GhibliMatic 
             </h1>
-            <div className="w-[35%] max-sm:w-[60%] flex gap-4 max-sm:gap-2 justify-end">
-                {/* <Input type="text" placeholder="Search..." className="bg-white focus:border-none" />   */}
+            <div className="w-[35%] max-sm:w-[60%] flex items-center gap-4 max-sm:gap-2 justify-end">
+                <Input type="text" placeholder="Search..." className="bg-white focus:border-none" value={search} onChange={handleSearch}  />  
                 <Dialog>
                     <DialogTrigger>
                         <Button variant="default">  
@@ -95,6 +104,7 @@ function Navbar() {
                         </DialogHeader>
                     </DialogContent>
                 </Dialog>        
+                <p className="text-xs max-sm:hidden text-center">{userCount} users</p>
             </div>
         </nav>
     )
