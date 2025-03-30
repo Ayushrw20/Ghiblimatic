@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { useTransition, a } from "@react-spring/web";
+import { useTransition, a, AnimatedProps } from "@react-spring/web";
+
+const AnimatedDiv = a.div as React.FC<AnimatedProps<React.HTMLAttributes<HTMLDivElement>>>;
 
 interface MasonryItem {
   id: string | number;
@@ -91,24 +93,24 @@ function Masonry({ data }: MasonryProps) {
       ref={ref}
       className="relative w-full h-full"
       style={{ height: Math.max(...heights) }}
-    >
+    >   
       {transitions((style, item) => (
-        <a.div
-          key={item.id}
-          style={style}
-          className="absolute p-[15px] [will-change:transform,width,height,opacity]"
-        >
-          <div
-            className="relative w-full h-full overflow-hidden uppercase text-[10px] leading-[10px] rounded-[8px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] transition duration-300 ease hover:scale-110 cursor-pointer"
-            style={{
-              backgroundColor: "#ffffff",
-              backgroundImage: `url(${item.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-        </a.div>
-      ))}
+  <AnimatedDiv
+    key={item.id}
+    style={style}
+    className="absolute p-[15px] [will-change:transform,width,height,opacity]"
+  >
+    <div
+      className="relative w-full h-full overflow-hidden uppercase text-[10px] leading-[10px] rounded-[8px] shadow-[0px_10px_50px_-10px_rgba(0,0,0,0.2)] transition duration-300 ease hover:scale-110 cursor-pointer"
+      style={{
+        backgroundColor: "#ffffff",
+        backgroundImage: `url(${item.image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    />
+  </AnimatedDiv>
+))}
     </div>
   );
 }
