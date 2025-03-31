@@ -70,9 +70,9 @@ function Navbar({handleSearchFn, userCount}: NavbarPropType) {
         setSearch(value);
         handleSearchFn(value);
     };
-
+        
     return (
-        <nav className="h-[11vh] w-full fixed z-10 flex items-center justify-between px-5 backdrop-blur-md max-sm:px-3">
+        <nav className="h-[11vh] w-full fixed z-10 flex items-center justify-between px-5 backdrop-blur-md max-sm:px-3 max-sm:h-[10vh]">
             <h1 className="text-4xl font-semibold pt-1 text-black mr-12 max-sm:text-xl max-sm:mr-4 cursor-pointer" 
             title="Developed by Ayush and Abhishek"> 
                 GhibliMatic 
