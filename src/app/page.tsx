@@ -41,10 +41,10 @@ export default function Home() {
     useEffect(() => {
         fetchData();
     }, []);
-                    
+
     return (
         <div className="h-screen w-screen bg-gradient-to-br from-[#E3F2FD] 
-        via-[#F8E8EE] to-[#FFF7E3] overflow-x-hidden max-sm:overflow-hidden">
+        via-[#F8E8EE] to-[#FFF7E3] overflow-x-hidden">
             <Navbar handleSearchFn={handleSearch} userCount={uniqueInstaCount} />
             <div className="py-20">
                 {
