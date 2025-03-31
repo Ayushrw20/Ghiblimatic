@@ -90,10 +90,10 @@ function Navbar({handleSearchFn, userCount}: NavbarPropType) {
                     </DialogTrigger>
                     <DialogContent>
                         <DialogHeader>
-                        <DialogTitle>Lets Ghibli-fy the world!</DialogTitle>
+                        <DialogTitle>Share your Ghibli with the world!</DialogTitle>
                         <DialogDescription className="flex flex-col gap-3 py-4">         
                             <Input type="text" 
-                            placeholder="Enter your Instgram" className="bg-white focus:border-none"
+                            placeholder="Enter your Instagram" className="bg-white focus:border-none"
                             value={username} 
                             onChange={(e) => setUsername(e.target.value)} />  
                             <Input id="picture" type="file" className="bg-white" onChange={handleFileChange} />
